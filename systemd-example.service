@@ -1,0 +1,13 @@
+[Unit]
+Description=Example systemd service
+
+[Service]
+Type=simple
+Restart=always
+WorkingDirectory=[WORKING-DIR]
+Environment="ENVIRONMENT_VAR_KEY=value"
+ExecStart=pipenv run python server.py
+User=[USER]
+
+[Install]
+WantedBy=multi-user.target

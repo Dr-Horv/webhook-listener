@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+DOCKER_IMAGE=
+CONTAINER_NAME=
+
+set -e
+
+docker pull $DOCKER_IMAGE
+
+docker stop $CONTAINER_NAME
+docker rm $CONTAINER_NAME
+
+docker run --restart=unless-stopped --detach --name=$CONTAINER_NAME $DOCKER_IMAGE
